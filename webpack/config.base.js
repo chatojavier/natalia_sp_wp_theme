@@ -7,7 +7,6 @@
 const magicImporter = require('node-sass-magic-importer') // Add magic import functionalities to SASS
 const MiniCssExtractPlugin = require('mini-css-extract-plugin') // Extracts the CSS files into public/css
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin') // Synchronising URLs, interactions and code changes across devices
-const WebpackBar = require('webpackbar') // Display elegant progress bar while building or watch
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin') // To optimize (compress) all images using
 const CopyPlugin = require('copy-webpack-plugin') // For WordPress we need to copy images from src to public to optimize them
 
@@ -90,9 +89,6 @@ module.exports = (projectOptions) => {
    * Plugins
    */
   const plugins = [
-    new WebpackBar(), // Adds loading bar during builds
-    // Uncomment this to enable profiler https://github.com/nuxt-contrib/webpackbar#options
-    // { reporters: [ 'profile' ], profile: true }
     new MiniCssExtractPlugin({
       // Extracts CSS files
       filename: projectOptions.projectCss.filename,
