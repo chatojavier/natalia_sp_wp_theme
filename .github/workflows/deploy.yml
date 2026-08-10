@@ -50,7 +50,7 @@ jobs:
           DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
           DEPLOY_PORT: ${{ secrets.DEPLOY_PORT }}
         run: |
-          RSYNC_RSH="ssh -i $HOME/.ssh/id_ed25519 -o IdentitiesOnly=yes -p $DEPLOY_PORT" rsync -az --delete --itemize-changes \
+          RSYNC_RSH="ssh -i $HOME/.ssh/id_ed25519 -o IdentitiesOnly=yes -p $DEPLOY_PORT" rsync -az --no-times --delete --itemize-changes \
             --exclude='.git/' \
             --exclude='.github/' \
             --exclude='node_modules/' \
