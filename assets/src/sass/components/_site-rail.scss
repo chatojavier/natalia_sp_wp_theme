@@ -1,0 +1,118 @@
+/* Shared desktop rail and navigation component for block-template pages. */
+@media (min-width: 1024px) {
+	body {
+		.wp-site-blocks .nsp_page_wrapper {
+			display: grid;
+			grid-template-columns: minmax(15rem, 19vw) minmax(0, 1fr);
+			gap: 0;
+			min-height: 100vh;
+
+			& > .wp-block-column {
+				width: auto;
+				flex-basis: auto !important;
+			}
+
+			& > .wp-block-column:first-child {
+				border-right: 1px solid rgba(17, 17, 17, 0.45);
+
+				& > .wp-block-group {
+					position: sticky;
+					top: 0;
+					display: flex;
+					min-height: 100vh;
+					padding: 3.5rem 1.75rem 3.25rem;
+				}
+			}
+
+			& > .wp-block-column:nth-child(2) {
+				padding: 0 3.75rem 2rem 3.25rem;
+			}
+		}
+
+		.nsp_header {
+			display: flex;
+			flex: 1;
+			flex-direction: column;
+
+			#nsp_nav-brand {
+				.wp-block-site-title {
+					font-size: clamp(2rem, 2.45vw, 3rem);
+					font-weight: 700;
+					letter-spacing: -0.065em;
+					line-height: 0.9;
+					word-break: normal;
+					overflow-wrap: normal;
+				}
+
+				.wp-block-site-tagline {
+					margin-top: 1.25rem;
+					font-family: var(--wp--preset--font-family--ibm-plex-mono);
+					font-size: 1rem;
+				}
+			}
+
+			#nsp_nav_wrapper { margin-top: 5.6rem; }
+
+			.nav_title_wrapper {
+				display: block;
+				padding: 0;
+				border-top: 1px solid rgba(17, 17, 17, 0.55);
+				background: transparent;
+
+				.wp-block-separator,
+				.nav_title_text { display: none; }
+			}
+
+			nav.nsp_block-navigation.wp-block-navigation {
+				margin: 2.75rem 0 0;
+
+				.wp-block-navigation__container {
+					gap: 1.5rem;
+					padding: 0;
+					border: 0;
+				}
+
+				.wp-block-navigation-item {
+					position: relative;
+
+					.wp-block-navigation-item__content,
+					.wp-block-navigation-item__label {
+						font-family: var(--wp--preset--font-family--ibm-plex-mono) !important;
+						font-size: 0.94rem !important;
+						line-height: 1.35 !important;
+						text-transform: none !important;
+					}
+
+					.wp-block-navigation-item__label {
+						display: block !important;
+						font-weight: 400;
+						word-break: normal;
+						overflow-wrap: normal;
+					}
+
+					&.current-menu-item::before,
+					&.current_page_item::before {
+						position: absolute;
+						right: calc(100% + 0.8rem);
+						top: 0.3em;
+						width: 1.6rem;
+						border-top: 1px solid #111;
+						content: '';
+					}
+
+					&:not(.current-menu-item):not(.current_page_item) .wp-block-navigation-item__content {
+						color: #555;
+						text-decoration: none;
+
+						&:hover { color: #111; }
+					}
+
+					&.current-menu-item .wp-block-navigation-item__label,
+					&.current_page_item .wp-block-navigation-item__label {
+						font-weight: 600 !important;
+					}
+				}
+			}
+		}
+	}
+}

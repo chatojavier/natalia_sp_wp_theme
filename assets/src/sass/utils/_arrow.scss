@@ -1,0 +1,33 @@
+.arrow {
+	border: solid var(--wp--preset--color--foreground);
+	border-width: 0 1px 1px 0;
+	display: inline-block;
+	padding: 3px;
+	transition-property: transform;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 150ms;
+}
+
+@mixin arrow-down {
+    @extend .arrow;
+    transform: rotate(45deg) translate(-50%);
+	-webkit-transform: rotate(45deg) translate(-50%);
+}
+
+@mixin arrow-up {
+    @extend .arrow;
+    transform: rotate(-135deg) translate(20%, -40%);
+    -webkit-transform: rotate(-135deg) translate(20%, -40%);
+}
+
+@mixin arrow-left {
+    @extend .arrow;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+@mixin arrow-right {
+    @extend .arrow;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}

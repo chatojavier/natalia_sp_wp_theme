@@ -1,0 +1,16 @@
+.book-gallery__row {
+	@media (min-width: 768px) {
+		flex-wrap: nowrap !important;
+		& > * { flex-basis: 0 !important; flex-grow: 1 !important; }
+	}
+
+	.book-gallery__item {
+		width: 100%;
+		padding: 1rem;
+		border: 1px solid #000;
+		.wp-block-image img { width: 100%; }
+	}
+}
+
+.nsp_frontpage_gallery.wp-block-gallery figure.wp-block-image { height: auto; }
+.nsp_frontpage_gallery.wp-block-gallery figure:nth-child(4) img { object-position: left; }

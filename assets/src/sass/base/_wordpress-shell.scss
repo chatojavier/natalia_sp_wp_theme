@@ -1,0 +1,48 @@
+body .wp-site-blocks {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	min-height: 95dvh;
+
+	.nsp_page_wrapper {
+		flex-direction: column;
+		gap: 0;
+
+		@media (min-width: 1024px) {
+			flex-direction: row;
+			gap: 2rem;
+		}
+
+		& > *:first-child > .is-position-sticky { top: 1.25rem; }
+
+		& > *:nth-child(2) main {
+			.nsp_page_title {
+				font-size: 2.25rem;
+				font-weight: 700;
+				line-height: 1;
+				text-transform: uppercase;
+
+				@media (min-width: 768px) { font-size: 3.75rem; }
+				@media (min-width: 1024px) { font-size: 4.5rem; }
+				@media (min-width: 1280px) { font-size: 6rem; }
+			}
+
+			.nsp_page_content > :not([hidden]) ~ :not([hidden]) {
+				margin-top: 1rem;
+
+				@media (min-width: 768px) { margin-top: 1.25rem; }
+				@media (min-width: 1024px) { margin-top: 1.5rem; }
+			}
+
+			.nsp-about {
+				flex-basis: 100%;
+				flex-grow: 1;
+
+				@media (min-width: 1024px) {
+					flex-basis: 0;
+					flex-grow: 0;
+				}
+			}
+		}
+	}
+}
