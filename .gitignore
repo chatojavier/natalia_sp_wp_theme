@@ -2,8 +2,7 @@
 npm-debug.log
 package-lock.json
 yarn.lock
-/assets/public/css
-/assets/public/js
+/assets/public
 .DS_Store
 /inc/acf
 /functions/acf-functions.php
