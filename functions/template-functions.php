@@ -104,7 +104,9 @@ function nsp_get_filmography_projects()
 			'format' => 'Documental',
 			'description' => 'Recorrido audiovisual por la ruta del bicentenario. La presentación anunciada por Natalia Sobrevilla será el 8 de agosto a las 5:30 pm en el Centro Cultural de la Católica, dentro del Festival de Cine de Lima, fuera de competencia.',
 			'url' => 'https://youtu.be/IpssHAjLK3Q',
-			'image' => 'https://i.ytimg.com/vi/IpssHAjLK3Q/hqdefault.jpg',
+			// Serve the poster from this site. Depending on YouTube's thumbnail CDN made
+			// the above-the-fold image unreliable on iOS browsers.
+			'image' => get_stylesheet_directory_uri() . '/assets/public/images/a-paso-de-vencedores.jpg',
 			'brief_url' => '/wp-content/uploads/2026/08/A-paso-de-vencedores-2.pdf',
 			'featured' => true,
 			'meta' => array(
@@ -171,7 +173,7 @@ function nsp_render_filmography_content()
 		<?php if ($featured_project) : ?>
 			<section class="nsp-filmography__feature">
 				<a class="nsp-filmography__poster" href="<?php echo esc_url($featured_project['url']); ?>" target="_blank" rel="noreferrer noopener" aria-label="<?php echo esc_attr(sprintf('Ver %s en YouTube', $featured_project['title'])); ?>">
-					<img src="<?php echo esc_url($featured_project['image']); ?>" alt="<?php echo esc_attr($featured_project['title']); ?>" loading="lazy" />
+					<img src="<?php echo esc_url($featured_project['image']); ?>" alt="<?php echo esc_attr($featured_project['title']); ?>" width="480" height="360" fetchpriority="high" />
 				</a>
 				<div class="nsp-filmography__feature-copy">
 					<p class="nsp-filmography__year"><?php echo esc_html($featured_project['year']); ?></p>
