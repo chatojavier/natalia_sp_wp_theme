@@ -20,15 +20,11 @@ function my_acf_settings_url( $url ) {
 // }
 
 // Google Maps API.
-// function my_acf_google_map_api( $api ){
-//     $api['key'] = MY_GOOGLE_MAPS_API_KEY; // Replace with your Google Maps API key
-//     return $api;
-// }
-// add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
-
-// Method 2: Setting.
+// Define MY_GOOGLE_MAPS_API_KEY in server configuration (for example, wp-config.php).
 function my_acf_init() {
-    acf_update_setting('google_api_key', 'AIzaSyBgX0dsbxomEVsnRXagWy8WCTGAtU3Ee_g');
+    if ( defined( 'MY_GOOGLE_MAPS_API_KEY' ) && MY_GOOGLE_MAPS_API_KEY ) {
+        acf_update_setting( 'google_api_key', MY_GOOGLE_MAPS_API_KEY );
+    }
 }
 add_action('acf/init', 'my_acf_init');
 
