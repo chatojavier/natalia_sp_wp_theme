@@ -21,7 +21,7 @@ function my_acf_settings_url( $url ) {
 
 // Google Maps API.
 // function my_acf_google_map_api( $api ){
-//     $api['key'] = 'AIzaSyBgX0dsbxomEVsnRXagWy8WCTGAtU3Ee_g';
+//     $api['key'] = MY_GOOGLE_MAPS_API_KEY; // Replace with your Google Maps API key
 //     return $api;
 // }
 // add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
